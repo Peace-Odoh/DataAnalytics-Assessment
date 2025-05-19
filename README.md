@@ -44,4 +44,22 @@ The goal was to flag savings and investment plans that have had no confirmed tra
 - Ensuring `NULL` values were captured (i.e., plans that have never had any transactions).
 - Differentiating between savings and investment plans for clarity in reporting.
 
+# Question 4: Customer Lifetime Value (CLV) Estimation
+
+# Approach:
+The goal was to estimate each customer's lifetime value using their transaction history and how long they've been a customer.
+
+- Aggregated total transactions and transaction value per customer.
+- Calculated tenure (in months) using the difference between the current date and their signup date.
+- Applied a simplified CLV formula:
+  
+  \[
+  CLV = (\text{Avg Transactions/Month}) \times 12 \times (\text{Avg Transaction Value in Naira})
+  \]
+
+# Challenges:
+- Handled customers with 0 tenure or no transactions gracefully to avoid division by zero.
+- Adjusted for kobo-to-naira conversion by multiplying transaction value by `0.001`.
+
+
 
