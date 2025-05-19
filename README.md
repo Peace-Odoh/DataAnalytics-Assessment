@@ -31,3 +31,17 @@ The goal was to categorize customers into High, Medium, or Low Frequency transac
 - Ensuring correct monthly grouping using `DATE_FORMAT()` was key to accurate averages.
 - Rounding the average transactions helped make the final output more interpretable.
 
+# Question 3: Account Inactivity Alert
+
+# Approach:
+The goal was to flag savings and investment plans that have had no confirmed transactions in the past 365 days.
+
+- Used `LEFT JOIN` to include plans even if they had no transactions.
+- Applied `MAX(transaction_date)` to find the most recent activity per plan.
+- Used `DATEDIFF()` and `DATE_SUB()` to compute inactivity and filter plans that meet the alert condition.
+
+# Challenges:
+- Ensuring `NULL` values were captured (i.e., plans that have never had any transactions).
+- Differentiating between savings and investment plans for clarity in reporting.
+
+
